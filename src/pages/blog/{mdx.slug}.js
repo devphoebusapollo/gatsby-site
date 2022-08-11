@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import Layout from "../../components/layout"
-import {MDXRenderer} from "gatsby-plugin-mdx";
+import {MDXRenderer} from "gatsby-plugin-mdx"; //To render the body of the post
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const BlogPost = ({data}) => {
@@ -46,5 +46,29 @@ export const query = graphql`
     }
   }
 `
+
+/*
+
+This query can also be used using $slug
+
+query($slug: String) {
+    mdx(slug: {eq: $slug}) {
+      body
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        hero_image_alt
+        hero_image_credit_link
+        hero_image_credit_text
+        hero_image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+
+*/
 
 export default BlogPost

@@ -9,7 +9,8 @@ const BlogPage = ({ data }) => {
         {data.allMdx.nodes.map(node => (
           <article key={node.id}>
             <h2>
-              <Link to={`/blog/${node.slug}`}>
+              {/* Use slug instead of id to turn the title into a link since it contains the last part of the url like my-first-post etc.*/}
+              <Link to={`/blog/${node.slug}`}> 
                 {node.frontmatter.title}
               </Link>
             </h2>
