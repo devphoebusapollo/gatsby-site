@@ -9,6 +9,8 @@ import {
 } from './layout.module.css'
 
 const Layout = ({ pageTitle, children }) => {
+  //Get the site's metadata from the gatsby-config.js
+  //The useStaticQuery can only be used once in per file/component
   const data = useStaticQuery(graphql`
     query {
       site {
